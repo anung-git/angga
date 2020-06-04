@@ -4,6 +4,7 @@
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
 
+#define alamatSuhu V0                     //penyimpanan alamat suhu V0-V255
 char auth[] = "OXHw5XoEniLm16AjOSi7qa2AMyvKLW9g";   //masukan token anda
 char ssid[] = "ardinista";            //nama wifi
 char pass[] = "ardiasta";             //password wifi
@@ -16,7 +17,7 @@ MAX6675 thermocouple(thermoCLK, thermoCS, thermoDO);
 
 BlynkTimer timer;
 void myTimerEvent(){
-  Blynk.virtualWrite(V0,thermocouple.readCelsius());
+  Blynk.virtualWrite(alamatSuhu,thermocouple.readCelsius());
 }
 
 void setup(){
